@@ -221,7 +221,12 @@ export const ByteDance = {
 
 export const Alibaba = {
   ExampleEndpoint: ALIBABA_BASE_URL,
-  ChatPath: "v1/chat/completions",
+  ChatPath: (modelName: string) => {
+  if (modelName.includes("vl") || modelName.includes("omni")) {
+      return "v1/chat/completions";
+    }
+    return `v1/chat/completions`;
+  },
 };
 
 export const Tencent = {
