@@ -79,7 +79,7 @@ async function request(req: NextRequest) {
     duplex: "half",
     signal: controller.signal,
   };
-
+ console.log("[Alibaba body]  ", req.body);
   // #1815 try to refuse some request to some models
   if (serverConfig.customModels && req.body) {
     try {
